@@ -7,7 +7,9 @@ class array: public suffix {
 public:
 	array();
 	void generate();
-	string get();
+	string print();
+	bool boolFind(int start, int end, string query); // searches the suffix array and returns a bool
+	int intFind(string query); // searches the suffix array and returns an int of the index of the match in the reference; returns -1 if not found
 private:
 	vector<int> sarray;
 }
@@ -29,7 +31,7 @@ void array::generate() {
 	std::sort(sarray.begin(), sarray.end(), comp(reference));
 }
 
-string array::get() {
+string array::print() {
 	string temp;
 	for(unsigned int i = 0; i < reference.length(); i++) {
 		if(i == 0) {
@@ -40,5 +42,17 @@ string array::get() {
 	}
 
 	return temp;
-};
+}
+
+bool suffix::boolFind(int start, int end, string query) { // end is intially equivalent to the size
+	int mid = (end - start) / 2;
+	if(query == index(sarray.at(mid))
+		return true;
+	else if(query > index(sarray.at(mid))
+		boolFind(mid + 1, end, query);
+	else
+		boolFind(start, mid - 1, query);
+
+	return false;
+}
 #endif

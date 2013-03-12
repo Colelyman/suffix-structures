@@ -33,7 +33,7 @@ public:
 
 	virtual void generate();
 	virtual string print();
-	virtual bool boolFind(string query);
+	virtual bool boolFind(int start, int end, string query);
 	virtual int intFind(string query);
 protected:
 	string reference;

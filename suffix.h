@@ -32,7 +32,7 @@ public:
 	string index(int position) const;
 
 	virtual void generate();
-	virtual string get();
+	virtual string print();
 	virtual bool boolFind(string query);
 	virtual int intFind(string query);
 protected:

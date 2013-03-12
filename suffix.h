@@ -1,5 +1,5 @@
+#ifndef SUFFIX_H
 #define SUFFIX_H
-#ifdef SUFFIX_H
 
 /* 
 ===== Suffix Structure Implementation ===== 
@@ -30,26 +30,12 @@ public:
 	suffix();
 	suffix(string reference, string delimiter);
 	string index(int position) const;
-
-	virtual void generate();
-	virtual string print();
-	virtual bool boolFind(int start, int end, string query);
-	virtual int intFind(string query);
 protected:
 	string reference;
 	string delimiter;
 };
 
 suffix::suffix(string reference, string delimiter) {
-/*	try {
-		for(unsigned int i = 0; i < reference.length(); i++) {
-			if(reference[i] == delimiter[0])
-				throw "Delimiter is in the reference string. Choose a different delimiter or remove the delimiter from the reference string";
-		}
-	}
-	catch(...) {
-		
-	}*/
 	this->reference = reference.append(delimiter);
 }
 

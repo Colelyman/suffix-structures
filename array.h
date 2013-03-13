@@ -1,17 +1,30 @@
+#ifndef ARRAY_H
 #define ARRAY_H
-#ifdef ARRAY_H
 
-#include "suffix.h"
+#include <string>
+#include <vector>
+#include <algorithm> 
 
-class array: public suffix {
+using std::string;
+using std::vector;
+using std::sort;
+
+class array {
 public:
-	array();
+	array(string ref, string del);
 	void generate();
+	string index(int position) const;
 	string print();
 	bool boolFind(int start, int end, string query); // searches the suffix array and returns a bool
 	int intFind(string query); // searches the suffix array and returns an int of the index of the match in the reference; returns -1 if not found
 private:
 	vector<int> sarray;
+	string reference;
+	string delimiter;
+};
+
+array::array(string ref, string del) {
+	this->reference = ref.append(del);
 }
 
 struct comp {
@@ -31,6 +44,10 @@ void array::generate() {
 	std::sort(sarray.begin(), sarray.end(), comp(reference));
 }
 
+string array::index(int position) const {
+	return reference.substr(position);
+}
+
 string array::print() {
 	string temp;
 	for(unsigned int i = 0; i < reference.length(); i++) {
@@ -44,11 +61,11 @@ string array::print() {
 	return temp;
 }
 
-bool suffix::boolFind(int start, int end, string query) { // end is intially equivalent to the size
+bool array::boolFind(int start, int end, string query) { // end is intially equivalent to the size
 	int mid = (end - start) / 2;
-	if(query == index(sarray.at(mid))
+	if(query == index(sarray.at(mid)))
 		return true;
-	else if(query > index(sarray.at(mid))
+	else if(query > index(sarray.at(mid)))
 		boolFind(mid + 1, end, query);
 	else
 		boolFind(start, mid - 1, query);

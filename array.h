@@ -58,6 +58,7 @@ string array::print() {
 		}
 		temp.append("\n" + index(sarray[i]));
 	}
+	temp.append("\n");
 
 	return temp;
 }

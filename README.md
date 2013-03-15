@@ -9,6 +9,7 @@ Input
 The input to generate a structure is basically:
  * a reference string- the text that you want to construct the structure with, whether it be a genome, or any other long string.
  * a string delimiter- a character that does not occur anywhere in the reference string, commonly a ``$``.
+
 Output
 -----------
 The following functions will produce the following outputs:

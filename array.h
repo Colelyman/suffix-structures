@@ -37,7 +37,7 @@ public:
 	string index(int position) const {
 		return reference.substr(position);
 	}
-	string print() {
+	string print() const {
 		string temp;
 		for(unsigned int i = 0; i < reference.length(); i++) {
 			if(i == 0) {
@@ -50,10 +50,10 @@ public:
 
 		return temp;
 	}
-	int intFind(string query) { // searches the suffix array and returns an int of the index of the match in the reference; returns -1 if not found
+	int intFind(string query) const { // searches the suffix array and returns an int of the index of the match in the reference; returns -1 if not found
 		return intFind(0, sarray.size() - 1, query);
 	}
-	int intFind(unsigned int start, unsigned int end, string query) {
+	int intFind(unsigned int start, unsigned int end, string query) const {
 		int mid = (end - start) / 2;
 		if(query == index(sarray.at(mid)))
 			return mid;
@@ -65,7 +65,7 @@ public:
 			intFind(start, mid - 1, query);
 		return -1;
 	}
-	bool boolFind(string query) {
+	bool boolFind(string query) const {
 		if(intFind(0, sarray.size() - 1, query) >= 0)
 			return true;
 		else

@@ -34,19 +34,31 @@ public:
 	void deallocate(Node* n) {
 		if(n == NULL)
 			return;
-		deallocate(n->firstChild);
 		deallocate(n->nextSibling);
+		deallocate(n->firstChild);
 		delete n;
 		return;
 	}
 	~tree() {
 		deallocate(root);
 	}
+	void changeSize(Node* n) {
+		if(n == NULL)
+			return;
+		changeSize(n->nextSibling);
+		changeSize(n->firstChild);
+		n->size++;
+		return;
+	}
 	void generate() {
 		Node* t = new Node(reference, 0);
-		root->firstChild = t;
+		Node* previous;
 		for(int i = 0; i < length; i++) { // i represents the character in the reference
-
+			t = new Node(reference + i, 1);
+			if(i == 0)
+				previous = root;
+			previous->firstChild = t;
+			changeSize(previous);
 		}
 		return;
 	}

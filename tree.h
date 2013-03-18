@@ -3,6 +3,11 @@
 
 #include <string.h>
 #include <string>
+#include <iostream>
+
+using std::endl;
+using std::cout;
+using std::string;
 
 class tree {
 private:
@@ -10,37 +15,38 @@ private:
 		Node* firstChild;
 		Node* nextSibling;
 		Node* link;
-		char* begin; // the index of the reference where the substring begins
+		int begin; // the index of the reference where the substring begins
 		int size; // the length of the substring in the node
 
-		Node(char* begin, int size) {
+		Node(int begin, int size) {
 			this->begin = begin;
 			this->size = size;
 			firstChild = NULL;
 			nextSibling = NULL;
 		}
 	};
-	char* reference;
+	string reference;
 	char delimiter;
-	int length;
 	Node* root; 
 public:
 	tree(string reference, string delimiter) {
 		reference.append(delimiter);
-		this->reference = (char*) reference.c_str();
-		length = reference.length();
-		root = new Node(this->reference, reference.length());
+		this->reference = reference;
+		root = new Node(0, reference.length());
 	}
 	void deallocate(Node* n) {
-		if(n == NULL)
+		if(n == NULL) {
+			delete n;
 			return;
+		}
 		deallocate(n->nextSibling);
 		deallocate(n->firstChild);
 		delete n;
 		return;
 	}
 	~tree() {
-		deallocate(root);
+		deallocate(root->firstChild);
+		delete root;
 	}
 	void changeSize(Node* n) {
 		if(n == NULL)
@@ -51,25 +57,35 @@ public:
 		return;
 	}
 	void generate() {
-		Node* t = new Node(reference, 0);
-		Node* previous;
-		for(int i = 0; i < length; i++) { // i represents the character in the reference
-			t = new Node(reference + i, 1);
-			if(i == 0)
-				previous = root;
-			previous->firstChild = t;
+		Node* t;
+		Node* previous = root;
+		for(unsigned int i = 0; i < reference.length(); i++) { // i represents the character in the reference
+			t = new Node(i, 1);
+			if(previous->firstChild == NULL)
+				previous->firstChild = t;
+			else
+				previous->nextSibling = t;
 			changeSize(previous);
+			previous = t;
 		}
 		return;
 	}
-	string index(int position) const {
-		return "need to implement";
+	string index(Node* n) const {
+		return reference.substr(n->begin, n->size);
 	}
-	string print() const {
+	string traverse(Node* n) const {
 		string temp;
-
-
+		temp.append(index(n) + "->"); // get the item at the node
+		if(n->nextSibling != NULL)
+			temp.append(traverse(n->nextSibling) + "; \n");
+		if(n->firstChild != NULL)
+			temp.append(traverse(n->firstChild) + "; \n");
 		return temp;
+	}
+	void print() const {
+		cout << "digraph Suffix_Tree {" << endl;
+		cout << traverse(root->firstChild);
+		cout << "}" << endl;
 	}
 	int intFind(string query) const {
 		return 0;

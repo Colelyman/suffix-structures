@@ -4,10 +4,12 @@
 #include <string.h>
 #include <string>
 #include <iostream>
+#include <sstream>
 
 using std::endl;
 using std::cout;
 using std::string;
+using std::stringstream;
 
 class tree {
 private:
@@ -61,11 +63,11 @@ public:
 		Node* previous = root;
 		for(unsigned int i = 0; i < reference.length(); i++) { // i represents the character in the reference
 			t = new Node(i, 1);
-			if(previous->firstChild == NULL)
+			if(previous == root)
 				previous->firstChild = t;
 			else
 				previous->nextSibling = t;
-			changeSize(previous);
+			changeSize(root);
 			previous = t;
 		}
 		return;
@@ -73,18 +75,26 @@ public:
 	string index(Node* n) const {
 		return reference.substr(n->begin, n->size);
 	}
+
 	string traverse(Node* n) const {
-		string temp;
-		temp.append(index(n) + "->"); // get the item at the node
-		if(n->nextSibling != NULL)
-			temp.append(traverse(n->nextSibling) + "; \n");
-		if(n->firstChild != NULL)
-			temp.append(traverse(n->firstChild) + "; \n");
-		return temp;
+		stringstream s;
+		Node* t = n->firstChild;
+
+		if(t != NULL) {
+			while(t != NULL) {
+				if(n == root) 
+					cout << "root->\"" << index(t) << "\";" << endl;
+				else
+					cout << "\"" << index(n) << "\"->\"" << index(t) << "\";" << endl;
+				traverse(t);
+				t = t->nextSibling;
+			}
+		}
+		return s.str();
 	}
 	void print() const {
 		cout << "digraph Suffix_Tree {" << endl;
-		cout << traverse(root->firstChild);
+		cout << traverse(root);
 		cout << "}" << endl;
 	}
 	int intFind(string query) const {

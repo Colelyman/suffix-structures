@@ -60,17 +60,34 @@ public:
 	}
 	void generate() {
 		Node* t;
-		Node* previous = root;
-		for(unsigned int i = 0; i < reference.length(); i++) { // i represents the character in the reference
-			t = new Node(i, 1);
-			if(previous == root)
-				previous->firstChild = t;
-			else
-				previous->nextSibling = t;
-			changeSize(root);
-			previous = t;
+		struct triple {
+			Node* node = root;
+			char edge = '\0'; // the first character of an edge is the unique id represented here
+			int length = 0; // represents how many characters in the specified edge
+		} active;
+		int remainder = 1;
+		int pos = 0;
+		while(remainder > 0 && (unsigned int) pos < reference.length()) { // remainder is the number of explicit suffixes that need to be added to the tree 
+			if(active.length == 0) 
+				active.edge = reference[pos];
+			if(/*the current character is not a child of active node*/) { // in other words, if there is a new character in the string
+				/*create new child of active.node;*/ 
+				/*add suffix link;*/
+			}
+			else { // just extend the tree, increase the length of each terminating leaf node
+
+			}
+			remainder--;
+			if(active.node == root && active.length > 0) {
+				active.length--;
+				active.edge = reference[pos - remainder + 1];
+			}
+			else {
+
+			}
+			changeSize(active.node); // only add new character to terminating leaf nodes, not internal nodes
+			pos++;
 		}
-		return;
 	}
 	string index(Node* n) const {
 		return reference.substr(n->begin, n->size);

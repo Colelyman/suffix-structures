@@ -1,0 +1,95 @@
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2013.3.28)  28 MAR 2013 19:07
+entering extended mode
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, loaded.
+
+! LaTeX Error: File `bmc_article.cls' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: cls)
+
+Enter file name: bmc_article/bmc_article.cls
+(./bmc_article/bmc_article.cls
+Document Class: bmc_article 2003/09/01 v1.01 BioMed Central article class
+(/usr/share/texmf-texlive/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+\c@bmc@correspondingauthor=\count87
+\c@bmc@emailcounter=\count88
+) (./main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--13
+
+ []
+
+! Undefined control sequence.
+<argument> ... {\raggedright {\noindent \@address 
+                                                  }\\ \hbox {} {\noindent \@...
+l.13 \maketitle
+               
+? q
+OK, entering \batchmode...
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 13.
+
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 13--13
+[]  
+ []
+
+
+Overfull \hbox (5.58296pt too wide) in paragraph at lines 20--21
+[]\OT1/cmss/bx/n/10 Availability: \OT1/cmss/m/n/10 GNUMAP can be down-loaded fr
+om http://dna.cs.byu.edu/gnumap. 
+ []
+
+ [1
+
+] (./main.bbl) [2] (./main.aux) ) 
+Here is how much of TeX's memory you used:
+ 275 strings out of 495062
+ 3020 string characters out of 1182644
+ 49119 words of memory out of 3000000
+ 3516 multiletter control sequences out of 15000+50000
+ 9128 words of font info for 32 fonts, out of 3000000 for 9000
+ 28 hyphenation exceptions out of 8191
+ 30i,5n,21p,153b,234s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on main.dvi (2 pages, 2844 bytes).

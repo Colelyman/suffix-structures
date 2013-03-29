@@ -1,0 +1,45 @@
+\documentclass{bmc_article}
+
+\title{Suffix tree implementation for GNUMAP}
+
+\author{Cole Lyman\\
+\small Computational Science Lab\\
+\small Department of Computer Science, Brigham Young University, Provo, UT 84602 USA\\
+}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\textbf{Summary:} GNUMAP\cite{gnumap} is a genome mapper built for next-generation sequencing. 
+The purpose of this paper is to improve the speed of GNUMAP by replacing the hash table currently 
+used in it with a suffix tree. This will hopefully optimize GNUMAP's runtime.
+
+\textbf{Availability:} GNUMAP can be downloaded from http://dna.cs.byu.edu/gnumap.
+
+\textbf{Contact:} cole@colelyman.com
+\end{abstract}
+
+\section{Introduction}
+
+\section{Tool Description}
+
+\section{Performance Analysis}
+\subsection{Comparison of Hash Table and Suffix Tree Independently} 
+Using the implementation of the hash table present in GNUMAP and the suffix tree implementation
+provided for GNUMAP, a comparison will be made between the two data structures independent of 
+GNUMAP. 
+
+\section{Conclusion}
+
+\renewcommand{\abstractname}{Acknowledgements}
+\begin{abstract}
+The authors would like to thank each of the members of the Computational Sciences Lab at Brigham Young University for all of
+their support, feedback, and guidance on this project.
+\end{abstract} 
+
+\bibliographystyle{plain}
+\bibliography{./bib/gnumap,./bib/ukkonen}
+\end{document}

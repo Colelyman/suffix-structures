@@ -1,0 +1,15 @@
+\begin{thebibliography}{1}
+
+\bibitem{gnumap}
+Nathan~L. Clement, Quinn Snell, Mark~J. Clement, Peter~C. Hollenhorst, Jahnvi
+  Purwar, Barbara~J. Graves, Bradley~R. Cairns, and W.~Evan Johnson.
+\newblock The gnumap algorithm: unbiased probabilistic mapping of
+  oligonucleotides from next-generation sequencing.
+\newblock {\em Bioinformatics}, 26(1):38--45, 2010.
+
+\bibitem{ukkonen}
+Esko Ukkonen.
+\newblock On-line construction of suffix trees.
+\newblock {\em Algorithmica}, 14(3):249--260, 1995.
+
+\end{thebibliography}
